@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import arrow from '../../assets/images/arrow.svg';
+import { Modal } from '../../components/Modal';
 import {
   Container,
   Header,
@@ -9,12 +11,14 @@ import {
 export function Home() {
   return (
     <Container>
+      <Modal danger />
+
       <InputSearchContainer>
         <input type="text" placeholder="Pesquisar contato..." />
       </InputSearchContainer>
       <Header>
         <h2>3 contatos</h2>
-        <a href="/">Novo Contato</a>
+        <Link to="/new">Novo Contato</Link>
       </Header>
 
       <ListContainer>

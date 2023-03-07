@@ -1,5 +1,6 @@
 export default {
   colors: {
+    white: '#ffffff',
     backgroundColor: '#F6F5FC',
     primary: {
       main: '#5061FC',
