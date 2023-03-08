@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Input = styled.input`
   width: 100%;
@@ -9,7 +9,6 @@ export const Input = styled.input`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
   outline: none;
-  margin-bottom: 16px;
 
   font-size: 16px;
 
@@ -18,4 +17,13 @@ export const Input = styled.input`
   &:focus {
     border: 2px solid ${({ theme }) => theme.colors.primary.main};
   }
+
+  ${({ theme, error }) =>
+    error &&
+    css`
+      color: ${theme.colors.danger.main};
+      &:focus {
+        border: 2px solid ${theme.colors.danger.main};
+      }
+    `}
 `;
