@@ -9,7 +9,7 @@ export const Select = styled.select`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
   outline: none;
-
+  appearance: none;
   font-size: 16px;
 
   transition: border 0.4s ease-in;
