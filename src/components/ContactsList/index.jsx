@@ -1,5 +1,5 @@
 import arrow from '../../assets/images/arrow.svg';
-import { Container, Header, ListContainer } from './styles';
+import { Container, Header, ListHeader } from '../../pages/Home/styles';
 
 export function ContactsList() {
   return (
@@ -9,14 +9,14 @@ export function ContactsList() {
         <a href="/">Novo Contato</a>
       </Header>
 
-      <ListContainer>
+      <ListHeader>
         <header>
           <button type="button">
             <span> Nome</span>
             <img src={arrow} alt="arrow" />
           </button>
         </header>
-      </ListContainer>
+      </ListHeader>
     </Container>
   );
 }
