@@ -11,7 +11,7 @@ import {
 } from './styles';
 
 import { Loader } from '../../components/Loader';
-import delay from '../../utils/delay';
+import ContactsService from '../../services/ContactsService';
 
 export function Home() {
   const [contacts, setContacts] = useState([]);
@@ -36,21 +36,20 @@ export function Home() {
   }
 
   useEffect(() => {
-    setIsLoad(true);
-    fetch(`http://localhost:3001/contacts?orderBy=${orderBy}`, {
-      method: 'GET',
-    })
-      .then(async (response) => {
-        await delay(800);
-        const requestedContacts = await response.json();
-        setContacts(requestedContacts);
-      })
-      .catch((error) => {
+    async function loadContacts() {
+      try {
+        setIsLoad(true);
+        const contactsList = await ContactsService.listContacts(orderBy);
+        setContacts(contactsList);
+      } catch (error) {
         console.log(error);
-      })
-      .finally(() => {
+      } finally {
         setIsLoad(false);
-      });
+      }
+    }
+
+    loadContacts();
+    return () => console.log('oiiiiiiii desmontou coco');
   }, [orderBy]);
 
   return (
