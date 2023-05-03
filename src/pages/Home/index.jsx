@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import arrow from '../../assets/images/arrow.svg';
 import emptyBox from '../../assets/images/empty-box.svg';
+import magnifierQuestion from '../../assets/images/magnifier-question.svg';
 
 import { ContactCard } from '../../components/ContactCard';
 import { Button } from '../../components/Button';
@@ -13,6 +14,7 @@ import {
   CardContainer,
   ErrorContainer,
   EmptyListContainer,
+  ContactNotFound,
 } from './styles';
 
 import { Loader } from '../../components/Loader';
@@ -116,6 +118,20 @@ export function Home() {
               </p>
             </EmptyListContainer>
           )}
+
+          {contacts.length > 0 && filteredContacts.length < 1 && (
+            <ContactNotFound>
+              <img
+                src={magnifierQuestion}
+                alt="ìcone lupa para contato não encontrado"
+              />
+              <p>
+                Nenhum resultado foi encontrado para{' '}
+                <strong>&quot;{searchTerm}&quot;</strong>.
+              </p>
+            </ContactNotFound>
+          )}
+
           {filteredContacts.length > 0 && (
             <ListHeader orderBy={orderBy}>
               <button type="button" onClick={handleToggleOrderBy}>

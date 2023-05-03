@@ -122,3 +122,20 @@ export const EmptyListContainer = styled.div`
     }
   }
 `;
+
+export const ContactNotFound = styled.div`
+  font-size: 1rem;
+  color: ${({ theme }) => theme.colors.gray[200]};
+  margin-top: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  p {
+    margin-left: 12px;
+  }
+
+  strong {
+    word-break: break-word;
+  }
+`;
